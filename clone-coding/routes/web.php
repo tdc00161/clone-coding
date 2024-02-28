@@ -19,4 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/login',[AuthController::class, 'loginget'])->name('login.get');
-Route::get('/login',[AuthController::class, 'loginpost'])->name('login.post');
+// Route::post('/login',[AuthController::class, 'loginpost'])->name('login.post');
+Route::get('/signup',[AuthController::class, 'signupget'])->name('signup.get');
+Route::post('/signup',[AuthController::class, 'signuppost'])->name('signup.post');
