@@ -1,0 +1,39 @@
+.header_title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 20px 0;
+    padding-left: 10%;
+}
+
+.main_hr {
+ border: 0.8px solid #222222;
+}
+
+.header_intro {
+    padding: 25px 0 25px 10%;
+    background-color: darkorange;
+
+}
+
+.header_a {
+    margin-right: 5px;
+}
+
+.header_mg1 {
+    margin-bottom: 27px;
+}
+
+.header_mg2 {
+    margin-bottom: 5px;
+}
+
+.header_mg3 {
+    margin-bottom: 8px;
+}
+
+.form_input {
+    width: 430px;
+    height: 40px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}

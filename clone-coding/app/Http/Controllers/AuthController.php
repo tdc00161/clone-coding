@@ -14,30 +14,48 @@ use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
+    //로그인 화면
     public function loginget() {
 
         return view('/login');
     }
 
+    //로그인 정보전달
     public function loginpost(Request $request) {
+
+        $remember= true;
+
+        Log::debug("응답", [$request]);
+
+        $userInfo = $request->only('email','password');
+
+        if(($request->email || $request->password) === '') {
+            $errorMsg = '아이디와 비밀번호를 입력해주세요';
+            return back()->withErrors($errorMsg);
+        }
+
+        Log::debug("첫번째 통과",[$request]);
 
         $user = User::where('email', $request->email)->first();
         if(!$user || !(Hash::check($request->password, $user->password))) {
-            $errorMsg = '아이디와 비밀번호를 다시 확인해주세요.';
-            // return redirect('/login')->withErrors($errorMsg);
-        }
 
-        Auth::login($user, $remember = true);
-        if(Auth::check()) {
+            return back()->withErrors()->withErrors($errorMsg);
+        }
+        Log::debug("두번째 통과",[$user]);
+
+        if(Auth::attempt($userInfo)) {
             session(['user' => $user]);
         } else {
             $errorMsg = '인증 오류가 났습니다.';
-            // return redirect('/login')->withErrors($errorMsg);
+            return redirect('/login')->withErrors($errorMsg);
         }
 
-        return redirect()->route('board.main');
+        Log::debug("세번째 통과", [$user]);
+
+        return redirect()->route('main');
     }
 
+    //회원가입 화면
     public function signupget() {
 
         if(Auth::check()) {
@@ -46,10 +64,8 @@ class AuthController extends Controller
 
         return view('signup');
     }
-
-    public function signuppost(RegisterRequest $request) {
-
-        dump($request);
+    //회원가입 정보전달
+    public function signuppost(Request $request) {
 
         $user = User::create([
             'email' => $request->input('email'),
@@ -58,9 +74,26 @@ class AuthController extends Controller
             'agreed' => $request->input('agreed'),
         ]);
 
-        dd($user);
-
         return redirect()->route('login.get');
     }
 
+    public function forgetget() {
+        return view('forgetPw');
+    }
+
+    //로그아웃
+    public function loginout() {
+
+        $user = Auth::user();
+
+        if($user) {
+            $user->setRememberToKen(null);
+            $user->save();
+        }
+
+        Session::flush(); // 세션파기
+        Auth::logout(); // 로그아웃
+
+        return redirect('/board');
+    }
 }

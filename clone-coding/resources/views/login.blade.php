@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/auth.css">
-    <link rel="stylesheet" href="/js/auth.js" defer>
+    <script src="/js/auth.js" defer></script>
     <title>login</title>
 </head>
 <body>
@@ -22,11 +22,19 @@
             <hr class="hr">
             <form action="#" method="post">
                 @csrf
-                <input class="login_input" type="text" name="email" id="email" placeholder="이메일">
-                <br>
-                <br>
-                <input class="login_input" type="password" name="password" id="password" placeholder="비밀번호">
-                <a class="password_search">비밀번호를 잊으셨나요?</a>
+                <div class="mg">
+                    <input class="login_input" type="text" name="email" id="email" placeholder="이메일">
+                    @if($errors->has('email'))
+                    <span id="emailE" class="text-danger">{{$errors->first('email')}}</span>
+                    @endif
+                </div>
+                <div class="mg">
+                    <input class="login_input" type="password" name="password" id="password" placeholder="비밀번호">
+                    @if($errors->has('password'))
+                    <span id="passwordE" class="text-danger">{{$errors->first('password')}}</span>
+                    @endif
+                </div>
+                <a href="{{route('forget.get')}}" class="password_search">비밀번호를 잊으셨나요?</a>
                 <button class="login_button">로그인</button>
             </form>
             <a class="registration_btn" href="{{route('signup.get')}}">회원가입</a>
