@@ -14,3 +14,7 @@ body{
     height: 100%;
     background-color: antiquewhite;
 }
+
+input:focus {
+    outline:none;
+}
