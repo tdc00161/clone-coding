@@ -6,14 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/layout.css">
+    <script src="/js/common.js" defer></script>
     @yield('link','')
     <title>@yield('title','layout')</title>
 </head>
 <body>
-    <div class="layout_title">NEWNEEK</div>
+    <div class="layout_title"><a href="{{route('main')}}">NEWNEEK</a></div>
     <div class="layout_img_btn">
-        <a href="#"><div class="layout_img"><img src="/img/search.png" alt="" width="25" height="25"></div></a>
-        <a href="#"><div class="layout_img"><img src="/img/person.png" alt="" width="25" height="25"></div></a>
+        <a href="{{route('search')}}"><div class="layout_img"><img src="/img/search.png" alt="" width="25" height="25"></div></a>
+        @guest
+        <a href="{{route('login.get')}}"><div class="layout_img"><img src="/img/person.png" alt="" width="25" height="25"></div></a>
+        @endguest
+        @auth
+        <button class="login_img" type="button"><div class="layout_img"><img src="/img/person.png" alt="" width="25" height="25"></div></button>
+        @endauth
+        <div id="user" style="display: none">
+            <div class="usermenu">마이페이지</div>
+            <div>주문내역</div>
+            <div>프로필 설정</div>
+            <div>고객센터</div>
+            <div>로그아웃</div>
+        </div>
     </div>
     <hr class="layout_hr">
     @yield('body')

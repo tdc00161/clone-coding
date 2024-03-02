@@ -38,8 +38,8 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
         if(!$user || !(Hash::check($request->password, $user->password))) {
-
-            return back()->withErrors()->withErrors($errorMsg);
+            $errorMsg = '아이디와 비밀번호를 입력해주세요';
+            return back()->withErrors($errorMsg);
         }
         Log::debug("두번째 통과",[$user]);
 

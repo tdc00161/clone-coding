@@ -12,7 +12,7 @@
 <body>
     <div class="login_background">
         <div class="login_container">
-            <h2 class="login_title">NEWNEEK</h2>
+            <h2 class="login_title"><a href="{{route('main')}}">NEWNEEK</a></h2>
             <form action="{{route('signup.post')}}" method="post" id="form">
                 @csrf
                 <div class="mg">

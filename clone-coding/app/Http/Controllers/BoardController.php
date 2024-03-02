@@ -10,4 +10,9 @@ class BoardController extends Controller
 
         return view('board.main');
     }
+
+    public function search(){
+
+        return view('board.search');
+    }
 }

@@ -12,7 +12,7 @@
 <body>
     <div class="login_background">
         <div class="login_container">
-            <h2 class="login_title">NEWNEEK</h2>
+            <h2 class="login_title"><a href="{{route('main')}}">NEWNEEK</a></h2>
             <div class="box">
                 <a href="#" class="google_tag">
                     <img src="/img/google.png" alt="" width="20" height="20">

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\SubscribeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::middleware('signupValidation')->post('/signup',[AuthController::class, 's
 Route::get('/forget',[AuthController::class, 'forgetget'])->name('forget.get'); //비밀번호찾기
 
 Route::get('/',[BoardController::class, 'boardmain'])->name('main');//메인화면
+Route::get('/search',[BoardController::class, 'search'])->name('search');//검색
+Route::post('/news',[SubscribeController::class, 'newsletter'])->name('news.post');//구독

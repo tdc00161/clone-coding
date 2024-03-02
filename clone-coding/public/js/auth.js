@@ -71,3 +71,4 @@ if(linkMg)
 linkMg.addEventListener('click',(e) =>{
         alert('이메일로 링크를 보내드렸어요!');
 });
+

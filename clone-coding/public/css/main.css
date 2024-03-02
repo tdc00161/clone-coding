@@ -60,6 +60,8 @@
 
 .underline {
     text-decoration: underline;
+    background-color: transparent;
+    border: none;
 }
 
 .read_btn {
@@ -137,11 +139,14 @@
     width: 80%;
     display: grid;
     grid-auto-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    text-align: left;
+
 }
 
 .board_post {
     width: 300px;
-    height: 350px;
+    height: 330px;
     border: 1px solid #222222;
     display: table-cell;
     border-collapse: collapse;
@@ -173,4 +178,83 @@
 .ib {
     display: inline-block;
     margin-right: 30px;
+}
+
+.plus_btn {
+    width: 250px;
+    height: 40px;
+    border: 1px solid #222222;
+    border-radius: 7px;
+    background: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin: 20px 0 230px 0;
+}
+
+.total_board {
+    text-align: center;
+}
+
+.main_hr1 {
+    border: 1.1px solid #222222;
+}
+
+.bg {
+    background-color: darkorange;
+    height: 100px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.interval{
+    height: 100px;
+}
+
+.footer_link {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    margin: 0 auto;
+    height: 60px;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.link_mg{
+    margin-left: 5px;
+}
+
+.app_link{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    height: 65px;
+    font-weight: 600;
+}
+
+.title_img {
+    margin-left: 45%;
+    box-sizing: border-box;
+}
+
+.li_flex {
+    display: flex;
+    align-items: center;
+}
+
+.menu_bar_mg {
+    margin-right: 3px;
+}
+
+/* 모달 */
+
+.person_modal{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: blanchedalmond;
 }
