@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('content');
             $table->char('category',1);
             $table->bigInteger('likes')->default(0);
+            $table->string('img',500);
             $table->timestamps();
             $table->softDeletes();
         });

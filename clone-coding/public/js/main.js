@@ -1,10 +1,17 @@
 // 'use strict'; //엄격모드
 
-const PersonBtn = document.getElementsByClassName('underline');
-const PersonMd = document.getElementsByClassName('person_modal');
+const PersonOpen = document.querySelector('#person');
+const PersonClose = document.querySelector('#close_btn');
+const modal = document.querySelector('.person_modal');
 
-PersonBtn.addEventListener('click', () => {
-    
-    PersonMd.style.display = "block";
+PersonOpen.addEventListener('click', (e) => {
+        if(modal.style.display = 'none') {
+            modal.style.display = 'block';
+        }
+});
 
+PersonClose.addEventListener('click', (e) => {
+    if(modal.style.display = 'block') {
+        modal.style.display = 'none';
+    }
 });

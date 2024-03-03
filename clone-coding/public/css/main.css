@@ -29,7 +29,7 @@
 
 .header_mg1 {
     margin-bottom: 27px;
-}
+}r
 
 .header_mg2 {
     margin-bottom: 5px;
@@ -62,6 +62,7 @@
     text-decoration: underline;
     background-color: transparent;
     border: none;
+    font-size: 0.9rem;
 }
 
 .read_btn {
@@ -136,20 +137,22 @@
 }
 
 .board {
-    width: 80%;
+    width: 88%;
     display: grid;
-    grid-auto-columns: 1fr 1fr 1fr 1fr;
     margin: 0 auto;
     text-align: left;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    border-collapse: collapse;
 
 }
 
 .board_post {
-    width: 300px;
+    /* width: 300px; */
     height: 330px;
     border: 1px solid #222222;
-    display: table-cell;
-    border-collapse: collapse;
+    /* display: table-cell;
+    border-collapse: collapse; */
+    box-sizing: border-box;
 }
 
 .post_img {
@@ -194,6 +197,7 @@
 
 .total_board {
     text-align: center;
+    width: 100%;
 }
 
 .main_hr1 {
@@ -253,8 +257,123 @@
 /* 모달 */
 
 .person_modal{
+    display: none;
     position: absolute;
-    height: 100%;
+    top:0;
+    left:0;
     width: 100%;
-    background-color: blanchedalmond;
+    height: 100vh;
+    background-color: rgba(34, 34, 34, 0.7);
+    overflow: hidden;
+}
+
+.p_modal {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 650px;
+    width: 880px;
+    background-color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid #222222;
+    overflow-y: scroll;
+}
+
+.person_title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.person_content {
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.person_ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 200px 200px 400px;
+    margin: 10px 0 15px 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.person_hr {
+    border: 0.7px solid lightgray;
+}
+
+.person_w {
+    margin: 30px 0 8px 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.person_ul1 {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 120px 480px 200px;
+    font-size: 0.9rem;
+    margin: 10px 0 15px 10px;
+}
+
+.b {
+    font-weight: 600;
+}
+
+.person_mg {
+    margin-top: 80px;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    background-color: white;
+    visibility: hidden;
+}
+
+.p_close {
+    border: 1px solid;
+    display: inline;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    right: 20px;
+    top: 20px;
+}
+
+.tab_pd {
+    padding: 70px 50px 0 50px;
+}
+
+.tab_title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title_b {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.tab_item {
+    cursor: pointer;
+}
+
+.tab_item.active {
+    border-bottom: 3px solid #222222;
+}
+
+.tab_content {
+    display: none;
+}
+
+.tab_content.active {
+    display: block;
 }

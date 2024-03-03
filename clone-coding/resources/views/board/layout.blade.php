@@ -18,20 +18,26 @@
         <a href="{{route('login.get')}}"><div class="layout_img"><img src="/img/person.png" alt="" width="25" height="25"></div></a>
         @endguest
         @auth
-        <button class="login_img" type="button"><div class="layout_img"><img src="/img/person.png" alt="" width="25" height="25"></div></button>
-        @endauth
-        <div id="user" style="display: none">
-            <div class="usermenu">마이페이지</div>
-            <div>주문내역</div>
-            <div>프로필 설정</div>
-            <div>고객센터</div>
-            <div>로그아웃</div>
+        <button id="user_btn" class="login_img" type="button"><div class="layout_img"><img src="/img/person.png" alt="" width="25" height="25"></div></button>
+        <div id="user" class="user" style="display: none">
+            <a href="#"><div class="user_li">마이페이지</div></a>
+            <a href="#"><div class="user_li">주문내역</div></a>
+            <a href="#"><div class="user_li">프로필 설정</div></a>
+            <a href="#"><div class="user_li">고객센터</div></a>
+            <a href="{{route('post.get')}}"><div class="user_li">글작성</div></a>
+            <a href="{{route('login.out')}}"><div class="user_li p">로그아웃</div></a>
         </div>
+        @endauth
     </div>
     <hr class="layout_hr">
     @yield('body')
     <hr class="layout_hr">
-    <div class="layout_content">오늘까지 <strong>588회</strong> 뉴스레터를 발행했고 <strong>609,846명</strong>이 구독했어요!</div>
+    <a href="{{route('main')}}">
+        <div class="layout_content">
+            <div>오늘까지 <strong>588회</strong> 뉴스레터를 발행했고 <strong>609,846명</strong>이 구독했어요!</div>
+            <img src="/img/arrow2.png" alt="" width="55" height="30">
+        </div>
+    </a>
     <div style="display: none">뉴스레터 구독하기   뉴스레터 구독하기   뉴스레터 구독하기    뉴스레터 구독하기</div>
     <hr class="layout_hr">
     <div class="layout_footer">

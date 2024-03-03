@@ -94,6 +94,6 @@ class AuthController extends Controller
         Session::flush(); // 세션파기
         Auth::logout(); // 로그아웃
 
-        return redirect('/board');
+        return redirect('/');
     }
 }
