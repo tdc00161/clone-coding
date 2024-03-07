@@ -12,11 +12,13 @@ class BoardController extends Controller
     public function boardmain(){
 
         $post = DB::table('boards as bd')
-                    ->join('category as cg', 'cg.id', 'bd.id')
+                    ->join('category as cg', 'cg.code', 'bd.category')
                     ->select('bd.id','bd.title','bd.img','bd.category','bd.created_at','cg.code','cg.name')
                     ->orderby('bd.created_at','desc')
                     ->limit(12)
                     ->get();
+
+
         
         foreach ($post as $item) {
             $created_at = $item->created_at;
@@ -27,7 +29,7 @@ class BoardController extends Controller
         $category = DB::table('category')
                     ->select('name')
                     ->get();
-        // dd($category);
+
 
         return view('board.main')->with('post',$post)->with('date',$date)->with('category',$category);
     }
@@ -61,12 +63,15 @@ class BoardController extends Controller
     //게시글
     public function postDetail($id) {
 
+        // dump($id);
+
         $post_id = DB::table('boards as bd')
                     ->join('category as cg','cg.id','bd.id')
                     ->select('bd.id','bd.title','bd.content','bd.img','bd.category','bd.likes','bd.created_at','cg.code','cg.name')
                     ->where('bd.id',$id)
                     ->get();
 
+        // dd($post_id);
         $created_at = $post_id[0]->created_at;
         $date = Carbon::parse($created_at)->format('Y/m/d');
 
